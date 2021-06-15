@@ -12,6 +12,7 @@ error_reporting(0);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title>Admin</title>
     <style>
@@ -81,7 +82,7 @@ error_reporting(0);
 </table>
         <form action="" method="POST">
             <div class="form-gorup">
-                    <h4>Fill in the updates : </h4>
+                    <h4>Fill in the updates : </h4><hr>
 
                 <label for="" >ID : </label><input type="text" class="form-control" name="id">
                 <label for="" >Name : </label><input type="text" class="form-control" name="name">
@@ -90,9 +91,61 @@ error_reporting(0);
                 <label for="" >Destination : </label><input type="text" class="form-control" name="destination">
                 <label for="" >DOP : </label><input type="date" class="form-control" name="date">
                     <br>
-                <input type="submit" value="Submit" name="submit" class="btn btn-success" style="width:100%;">
+                <input type="submit" value="Update Record" name="submit" class="btn btn-success" style="width:100%;">
 
             </div>
+        </form>
+        <br><br>
+        <form action="" method="POST">
+            <div class="form-group">
+
+                    <h4>Delete an entry</h4><hr>
+                    <label for="" >ID : </label><input type="text" class="form-control" name="id_d">
+                    <br> <input type="submit" value="Delete Record" name="submit" class="w3-button w3-red w3-ripple" style="width:100%;">
+            </div>
+            <?php
+                if(isset($_POST['submit']))
+                {
+                    $id = $_POST['id_d'];
+
+                    $opr3 = "DELETE FROM BOOKING WHERE id = '$id'";
+                    $r_opr3 =  mysqli_query($con,$opr3);
+                    header('location:admin_control_panel.php');
+                }
+            ?>
+        </form>
+                <br>
+        <form action="" method="POST">
+            <div class="form-gorup">
+                        <h4>Add a record : </h4><hr>
+
+                    <label for="" >ID : </label><input type="text" class="form-control" name="id1">
+                    <label for="" >Name : </label><input type="text" class="form-control" name="name1">
+                    <label for="" >Bus Number : </label><input type="text" class="form-control" name="bus_number1">
+                    <label for="" >Source : </label><input type="text" class="form-control" name="source1">
+                    <label for="" >Destination : </label><input type="text" class="form-control" name="destination1">
+                    <label for="" >DOP : </label><input type="date" class="form-control" name="date1">
+                        <br>
+                        <br> <input type="submit" value="Add Record" name="submit" class="w3-button w3-blue w3-ripple" style="width:100%;">
+                
+                </div>
+
+                <?php
+                    if(isset($_POST['submit']))
+                    {
+                        $id = $_POST['id1'];
+                        $name = $_POST['name1'];
+                        $bus_no = $_POST['bus_number1'];
+                        $source = $_POST['source1'];
+                        $destination = $_POST['destination1'];
+                        $DOP = $_POST['date1'];
+                        
+                        $opr4 = "INSERT INTO BOOKING VALUES('$id','$name','$bus_no','$source','$destination','$DOP')";
+                        $r_opr4 =  mysqli_query($con,$opr4);
+                        header('location:admin_control_panel.php');
+                    }
+                ?>
+                <br>
         </form>
     </div>
 </body>
