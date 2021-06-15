@@ -55,7 +55,7 @@ error_reporting(0);
         <br>
         <center><h1>Admin Panel</h1></center>
 <br>
-        <table class="table">
+        <table class="table w3-hoverable">
             <tr style="background-color : #111; color : #fff;">
                 <td>ID</td>
                 <td>Name</td>
@@ -91,7 +91,7 @@ error_reporting(0);
                 <label for="" >Destination : </label><input type="text" class="form-control" name="destination">
                 <label for="" >DOP : </label><input type="date" class="form-control" name="date">
                     <br>
-                <input type="submit" value="Update Record" name="submit" class="btn btn-success" style="width:100%;">
+                <input type="submit" value="Update Record" name="submit" class="w3-button w3-green w3-ripple" style="width:100%;">
 
             </div>
         </form>
@@ -142,6 +142,10 @@ error_reporting(0);
                         
                         $opr4 = "INSERT INTO BOOKING VALUES('$id','$name','$bus_no','$source','$destination','$DOP')";
                         $r_opr4 =  mysqli_query($con,$opr4);
+
+                        $opr5 = "INSERT INTO CUSTOMER VALUES ('$id','$source','$destination','$DOP')";
+                        $r_opr5 =  mysqli_query($con,$opr5);
+                        echo '<script>alert("Operation Successful")</script>';
                         header('location:admin_control_panel.php');
                     }
                 ?>
