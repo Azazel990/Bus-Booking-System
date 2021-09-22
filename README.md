@@ -36,7 +36,7 @@ The user is provided with the bus schedule according to his/her source and desti
 
 After the user is presneted with the buses according to his route he is allowed to choose bus according to the schedule suitable to him. The details of every 'booking' are stored in the booking table. This table contains the user name the bus number he selected, its source and destination and his date of departure.
 
-![](screenshots/Screenshot%20(116).png)
+![](screenshots/Screenshot%20(121).png)
 
 ## Ticket Printing 
 
